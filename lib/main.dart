@@ -1,8 +1,17 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_route_template/screens.dart';
+import 'package:flutter/services.dart';
+import 'package:provider/provider.dart';
+import 'package:flutter_route_template/theme/theme_provider.dart';
+import 'package:flutter_route_template/theme/theme.dart';
+import 'package:flutter_route_template/routes/router.dart';
 
 void main() {
-  runApp(const MainApp());
+  runApp(
+    ChangeNotifierProvider(
+      create: (context) => ThemeProvider(),
+      child: const MainApp(),
+    ),
+  );
 }
 
 class MainApp extends StatelessWidget {
@@ -10,9 +19,26 @@ class MainApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: HomeScreen(),
+    final themeProvider = Provider.of<ThemeProvider>(context);
+    final theme = Theme.of(context);
+    final isDarkMode = themeProvider.themeMode == ThemeMode.dark;
+
+    return AnnotatedRegion<SystemUiOverlayStyle>(
+      value: SystemUiOverlayStyle(
+        statusBarColor: Colors.transparent,
+        statusBarIconBrightness:
+            isDarkMode ? Brightness.light : Brightness.dark,
+        systemNavigationBarColor: theme.colorScheme.surface,
+        systemNavigationBarIconBrightness:
+            isDarkMode ? Brightness.light : Brightness.dark,
+      ),
+      child: MaterialApp.router(
+        debugShowCheckedModeBanner: false,
+        theme: AppTheme.lightTheme,
+        darkTheme: AppTheme.darkTheme,
+        themeMode: themeProvider.themeMode,
+        routerConfig: router,
+      ),
     );
   }
 }
