@@ -12,17 +12,25 @@ class CustomConvexBottomBar extends StatelessWidget {
     required this.child,
   });
 
+  Color darken(Color color, [double amount = 0.1]) {
+    return Color.lerp(color, Colors.black, amount) ?? color;
+  }
+
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
-    // final isDarkMode = theme.brightness == Brightness.dark;
+    final isDarkMode = theme.brightness == Brightness.dark;
+
+    final surfaceColor = theme.colorScheme.surface;
+    final adjustedSurface =
+        isDarkMode ? darken(surfaceColor, 0.1) : surfaceColor;
 
     return Scaffold(
       body: SafeArea(child: child),
       bottomNavigationBar: ConvexAppBar(
         height: 60,
         style: TabStyle.react,
-        backgroundColor: theme.colorScheme.surface,
+        backgroundColor: adjustedSurface,
         activeColor: theme.colorScheme.onSurface,
         color: theme.colorScheme.onSurface.withValues(alpha: 178),
         initialActiveIndex: currentIndex,
