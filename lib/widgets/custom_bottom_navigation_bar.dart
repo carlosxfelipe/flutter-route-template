@@ -49,7 +49,7 @@ class _CustomBottomNavigationBarState extends State<CustomBottomNavigationBar> {
         selectedItemColor: theme.colorScheme.primary,
         unselectedItemColor: theme.colorScheme.onSurface.withValues(alpha: 0.6),
         type: BottomNavigationBarType.fixed,
-        items: const [
+        items: [
           BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Início'),
           BottomNavigationBarItem(icon: Icon(Icons.search), label: 'Busca'),
           BottomNavigationBarItem(
