@@ -8,7 +8,7 @@ class ProfileScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return CustomBottomNavigationBar(
+    return CustomConvexBottomBar(
       currentIndex: 3, // Índice correspondente ao botão "Perfil"
       child: Scaffold(
         // appBar: AppBar(title: const Text('Perfil')),

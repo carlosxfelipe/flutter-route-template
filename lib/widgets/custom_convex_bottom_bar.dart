@@ -2,11 +2,11 @@ import 'package:convex_bottom_bar/convex_bottom_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
-class ConvexBottomBar extends StatelessWidget {
+class CustomConvexBottomBar extends StatelessWidget {
   final int currentIndex;
   final Widget child;
 
-  const ConvexBottomBar({
+  const CustomConvexBottomBar({
     super.key,
     required this.currentIndex,
     required this.child,
