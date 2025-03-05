@@ -1,16 +1,7 @@
 import 'package:flutter/material.dart';
 
 class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
-  final bool showBackButton;
-  final String? address;
-  final VoidCallback? onAddressTap;
-
-  const CustomAppBar({
-    super.key,
-    this.showBackButton = false,
-    this.address,
-    this.onAddressTap,
-  });
+  const CustomAppBar({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -19,21 +10,8 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
     return AppBar(
       backgroundColor: theme.colorScheme.surface,
       surfaceTintColor: theme.colorScheme.surface,
-      leading:
-          showBackButton && Navigator.canPop(context)
-              ? IconButton(
-                icon: Icon(
-                  Icons.arrow_back,
-                  color: theme.colorScheme.onSurface,
-                ),
-                onPressed: () => Navigator.pop(context),
-              )
-              : null,
-      title:
-          address != null
-              ? AddressAppBarContent(address: address!, onTap: onAddressTap)
-              : const SearchAppBarContent(),
-      centerTitle: address != null,
+      title: const SearchAppBarContent(),
+      centerTitle: false,
       actions: [
         IconButton(
           icon: Icon(Icons.notifications, color: theme.colorScheme.onSurface),
@@ -45,44 +23,6 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
 
   @override
   Size get preferredSize => const Size.fromHeight(kToolbarHeight);
-}
-
-class AddressAppBarContent extends StatelessWidget {
-  final String address;
-  final VoidCallback? onTap;
-
-  const AddressAppBarContent({super.key, required this.address, this.onTap});
-
-  @override
-  Widget build(BuildContext context) {
-    final theme = Theme.of(context);
-    final iconColor = theme.colorScheme.onSurface;
-
-    return GestureDetector(
-      onTap: onTap,
-      child: Row(
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          Icon(Icons.location_on, color: iconColor, size: 20),
-          const SizedBox(width: 6),
-          Flexible(
-            child: Text(
-              address,
-              style: TextStyle(
-                color: theme.colorScheme.onSurface,
-                fontSize: 16,
-                fontWeight: FontWeight.w600,
-              ),
-              maxLines: 1,
-              overflow: TextOverflow.ellipsis,
-            ),
-          ),
-          const SizedBox(width: 6),
-          Icon(Icons.expand_more, color: iconColor, size: 20),
-        ],
-      ),
-    );
-  }
 }
 
 class SearchAppBarContent extends StatelessWidget {
