@@ -22,7 +22,7 @@ class CustomConvexBottomBar extends StatelessWidget {
       bottomNavigationBar: ConvexAppBar(
         height: 60,
         style: TabStyle.react,
-        backgroundColor: isDarkMode ? Colors.grey[900] : Colors.white,
+        backgroundColor: isDarkMode ? Colors.black : Colors.white,
         activeColor: theme.colorScheme.onSurface,
         color: theme.colorScheme.onSurface.withValues(alpha: 178),
         initialActiveIndex: currentIndex,
