@@ -20,7 +20,6 @@ class MainApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final themeProvider = Provider.of<ThemeProvider>(context);
-    final theme = Theme.of(context);
     final isDarkMode = themeProvider.themeMode == ThemeMode.dark;
 
     return AnnotatedRegion<SystemUiOverlayStyle>(
@@ -28,8 +27,7 @@ class MainApp extends StatelessWidget {
         statusBarColor: Colors.transparent,
         statusBarIconBrightness:
             isDarkMode ? Brightness.light : Brightness.dark,
-        systemNavigationBarColor:
-            isDarkMode ? Color(0xFF1C1C1E) : theme.colorScheme.surface,
+        systemNavigationBarColor: isDarkMode ? Color(0xFF1C1C1E) : Colors.white,
         systemNavigationBarIconBrightness:
             isDarkMode ? Brightness.light : Brightness.dark,
       ),
