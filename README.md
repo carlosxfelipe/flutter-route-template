@@ -11,7 +11,7 @@ Este projeto é um template para aplicações Flutter, utilizando `go_router` pa
 1. **Clone o repositório:**
 
    ```sh
-   git clone https://github.com/seu-usuario/flutter-route-template.git
+   git clone https://github.com/carlosxfelipe/flutter-route-template.git
    cd flutter-route-template
    ```
 
