@@ -39,13 +39,14 @@ class _CustomBottomNavigationBarState extends State<CustomBottomNavigationBar> {
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
+    final isDarkMode = theme.brightness == Brightness.dark;
 
     return Scaffold(
       body: SafeArea(child: widget.child),
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: widget.currentIndex,
         onTap: _onItemTapped,
-        backgroundColor: theme.colorScheme.surface,
+        backgroundColor: isDarkMode ? Colors.black : Colors.white,
         selectedItemColor: theme.colorScheme.primary,
         unselectedItemColor: theme.colorScheme.onSurface.withValues(alpha: 0.6),
         type: BottomNavigationBarType.fixed,
