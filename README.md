@@ -1,5 +1,9 @@
 # Flutter Route Template
 
+<p align="center">
+  <img src="./798shots_so.png" alt="Preview do Projeto" />
+</p>
+
 Este projeto é um template para aplicações Flutter, utilizando `go_router` para navegação e outras bibliotecas essenciais para o desenvolvimento.
 
 ## 📦 Instalação
@@ -69,6 +73,13 @@ Se você deseja utilizar este template em seu próprio projeto Flutter, siga os 
    ```dart
    import 'package:seu_projeto/widgets.dart';
    ```
+
+## ℹ️ Observação
+
+O template oferece dois widgets de barra de navegação para escolher:
+
+- **CustomBottomNavigationBar**: não possui dependências externas.
+- **CustomConvexBottomBar**: utiliza a dependência `convex_bottom_bar`.
 
 ## 📂 Estrutura do Projeto
 
