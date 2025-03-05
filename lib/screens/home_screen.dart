@@ -6,7 +6,7 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ConvexBottomBar(
+    return CustomBottomNavigationBar(
       currentIndex: 0, // Índice correspondente ao botão "Início"
       child: Scaffold(
         // appBar: AppBar(title: const Text('Home Screen')),
