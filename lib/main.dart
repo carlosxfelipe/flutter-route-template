@@ -28,7 +28,8 @@ class MainApp extends StatelessWidget {
         statusBarColor: Colors.transparent,
         statusBarIconBrightness:
             isDarkMode ? Brightness.light : Brightness.dark,
-        systemNavigationBarColor: theme.colorScheme.surface,
+        systemNavigationBarColor:
+            isDarkMode ? Color(0xFF1C1C1E) : theme.colorScheme.surface,
         systemNavigationBarIconBrightness:
             isDarkMode ? Brightness.light : Brightness.dark,
       ),
