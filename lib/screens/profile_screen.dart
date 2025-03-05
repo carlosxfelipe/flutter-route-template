@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:flutter_route_template/theme/theme_provider.dart';
-import 'package:flutter_route_template/widgets/convex_bottom_bar.dart';
+import 'package:flutter_route_template/widgets.dart';
 
 class ProfileScreen extends StatelessWidget {
   const ProfileScreen({super.key});
